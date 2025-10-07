@@ -5,6 +5,7 @@ import { Ticket, CreateTicketDTO, UpdateTicketDTO, TicketStatus } from "@/types/
 import { TicketCard } from "@/components/TicketCard";
 import { CreateTicketDialog } from "@/components/CreateTicketDialog";
 import { EditTicketDialog } from "@/components/EditTicketDialog";
+import { ApiConnectionStatus } from "@/components/ApiConnectionStatus";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Wrench, Loader2 } from "lucide-react";
@@ -67,6 +68,11 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
+        {/* Connection Status */}
+        <div className="mb-6">
+          <ApiConnectionStatus />
+        </div>
+
         {/* Filters */}
         <Tabs value={statusFilter} onValueChange={(value) => setStatusFilter(value as TicketStatus | "TODOS")} className="mb-8">
           <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:inline-grid">
